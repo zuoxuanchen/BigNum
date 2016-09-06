@@ -2,8 +2,9 @@ package StringNum;
 
 import java.util.Random;
 
+
 /**
- * 大整数的存放，加减乘除，绝对值求余运算
+ * 大整数的存放，加减乘除，绝对值求（余运算,最大公约数，最小公倍数）
  * @author zuoxc
  *
  */
@@ -332,7 +333,7 @@ public class BigNum {
 		return this;
 	}
 	/**
-	 * 求两者绝对值的mod
+	 * 求两者绝对值的余
 	 * @return mod(|a|,|b|)
 	 */
  	public BigNum absMod(int b){
@@ -340,7 +341,7 @@ public class BigNum {
 		return this.absMod(bNum);
 	}
 	/**
-	 * 求两者绝对值的mod
+	 * 求两者绝对值的余
 	 * @return mod(|a|,|b|)
 	 */
 	public BigNum absMod(String b){
@@ -348,12 +349,86 @@ public class BigNum {
 		return this.absMod(bNum);
 	}
 	/**
-	 * 求两者绝对值的mod
+	 * 求两者绝对值的余
 	 * @return mod(|a|,|b|)
 	 */
 	public BigNum absMod(BigNum bNum) {
 		bNum=bNum.abs();
 		return new BigNum(countMod(aNum, bNum.abs().getNum()));
+	}
+		/**
+	 * 求两者绝对值的最大公约数
+	 * @return gcd(|a|,|b|)
+	 */
+ 	public BigNum absDivisor(int b){
+		BigNum bNum=new BigNum(b);
+		return this.absDivisor(bNum);
+	}
+	/**
+	 * 求两者绝对值的最大公约数
+	 * @return gcd(|a|,|b|)
+	 */
+ 	public BigNum absDivisor(String b){
+		BigNum bNum=new BigNum(b);
+		return this.absDivisor(bNum);
+	}
+	/**
+	 * 求两者绝对值的最大公约数
+	 * @return gcd(|a|,|b|)
+	 */
+	public BigNum absDivisor(BigNum bNum){
+		BigNum aNumT=new BigNum(this.getNum());
+		if (isZero()||bNum.isZero()) {
+			return null;
+		}
+		else if (aNumT.equals(bNum)) {
+			return aNumT;
+		}
+		else if (!aIsBiggerThanB(aNum, bNum.abs().getNum())) {
+			return bNum.absDivisor(aNumT);
+		}
+		BigNum temp=new BigNum();
+		while(!bNum.isZero())           /*通过循环求两数的余数，直到余数为0*/
+		   {
+		      temp=aNumT.absMod(bNum);
+		      aNumT=bNum; 
+		      bNum=temp;/*变量数值交换*/
+		    }
+		return aNumT; 
+		
+	}
+	
+	
+	/**
+	 * 求两者绝对值的最小公倍数
+	 * @return lcm(|a|,|b|)
+	 */
+	public BigNum absMulitiple(int b){
+		BigNum bNum=new BigNum(b);
+		return this.absMulitiple(bNum);
+	}
+	/**
+	 * 求两者绝对值的最小公倍数
+	 * @return lcm(|a|,|b|)
+	 */
+	public BigNum absMulitiple(String b){
+		BigNum bNum=new BigNum(b);
+		return this.absMulitiple(bNum);
+	}
+	/**
+	 * 求两者绝对值的最小公倍数
+	 * @return lcm(|a|,|b|)
+	 */
+	public BigNum absMulitiple(BigNum bNum){
+		BigNum aNumT=new BigNum(this.getNum());
+		if (isZero()||bNum.isZero()) {
+			return null;
+		}
+		else if (aNumT.equals(bNum)) {
+			return aNumT;
+		}
+		BigNum temp=aNumT.absDivisor(bNum);
+		return aNumT.multiple(bNum.abs()).divide(temp);
 	}
 	/**
 	 * 取反
