@@ -3,16 +3,16 @@ package StringNum;
 import java.util.Random;
 
 /**
- * ´óÊı¾İµÄ´æ·Å£¬¼Ó¼õ³Ë£¬¾ø¶ÔÖµÇóÓàÔËËã
+ * å¤§æ•´æ•°çš„å­˜æ”¾ï¼ŒåŠ å‡ä¹˜é™¤ï¼Œç»å¯¹å€¼æ±‚ä½™è¿ç®—
  * @author zuoxc
  *
  */
 public class BigNum {
 
-	//´æ·ÅÊı¾İ
+	//å­˜æ”¾æ•°æ®
 	private String aNum="";
 
-	//´æ·Å·ûºÅ
+	//å­˜æ”¾ç¬¦å·
 	private String negPosFlag="";
 
 	public BigNum(String aNum) {
@@ -34,35 +34,35 @@ public class BigNum {
 		setNum(null);
 	}
 	/**
-	 * ÊÇ·ñÎª¸ºÊı
+	 * æ˜¯å¦ä¸ºè´Ÿæ•°
 	 * @return boolean
 	 */
 	public boolean isNeg(){
 		return negPosFlag.equals("-");
 	}
 	/**
-	 * ÊÇ·ñÎª0
+	 * æ˜¯å¦ä¸º0
 	 * @return boolean
 	 */
 	public boolean isZero(){
 		return negPosFlag.equals("0");
 	}
 	/**
-	 * ÊÇ·ñÎªÕıÊı
+	 * æ˜¯å¦ä¸ºæ­£æ•°
 	 * @return boolean
 	 */
 	public boolean isPos(){
 		return negPosFlag.equals("+");
 	}
 	/**
-	 * Êı¾İÎ»Êı
+	 * æ•°æ®ä½æ•°
 	 * @return
 	 */
 	public int length() {
 		return aNum.length();
 	}
 	/**
-	 * »ñµÃÊıÖµ
+	 * è·å¾—æ•°å€¼
 	 * @return String
 	 */
 	public String getNum() {
@@ -72,7 +72,7 @@ public class BigNum {
 		else return aNum;
 	}
 	/**
-	 * ÉèÖÃÊıÖµ
+	 * è®¾ç½®æ•°å€¼
 	 * @param String
 	 */
 	public BigNum setNum(int a) {
@@ -101,14 +101,14 @@ public class BigNum {
 	}
 
 	/**
-	 * Ëæ»úÉú³É¶¨³¤µÄÊı×Ö
+	 * éšæœºç”Ÿæˆå®šé•¿çš„æ•°å­—
 	 * @param length
 	 */
 	public BigNum setRandomNum(int length) {
 		String numberChar = "0123456789";
-		Long seed = System.currentTimeMillis();// »ñµÃÏµÍ³Ê±¼ä£¬×÷ÎªÉú³ÉËæ»úÊıµÄÖÖ×Ó
-        StringBuffer sb = new StringBuffer();// ×°ÔØÉú³ÉµÄËæ»úÊı
-        Random random = new Random(seed);// µ÷ÓÃÖÖ×ÓÉú³ÉËæ»úÊı
+		Long seed = System.currentTimeMillis();// è·å¾—ç³»ç»Ÿæ—¶é—´ï¼Œä½œä¸ºç”Ÿæˆéšæœºæ•°çš„ç§å­
+        StringBuffer sb = new StringBuffer();// è£…è½½ç”Ÿæˆçš„éšæœºæ•°
+        Random random = new Random(seed);// è°ƒç”¨ç§å­ç”Ÿæˆéšæœºæ•°
         for (int i = 0; i < length; i++) {
             sb.append(numberChar.charAt(random.nextInt(numberChar.length())));
         }
@@ -125,7 +125,7 @@ public class BigNum {
 		return this.getNum().equals(bNum.getNum());
 	}
 	/**
-	 * ´óĞ¡±È½Ï½Ó¿Ú
+	 * å¤§å°æ¯”è¾ƒæ¥å£
 	 * @param BigNum
 	 * @return boolean
 	 */
@@ -146,9 +146,9 @@ public class BigNum {
 		}
 	}
 	/**
-	 * ¼ì²é±í´ïÊ½
+	 * æ£€æŸ¥è¡¨è¾¾å¼
 	 * @param num
-	 * @return ºÏ·¨µÄnum
+	 * @return åˆæ³•çš„num
 	 */
 	private String checkForm(String num) {
 		// TODO Auto-generated method stub
@@ -169,21 +169,21 @@ public class BigNum {
 	}
 	
 	/**
-	 * ÇóºÍ
+	 * æ±‚å’Œ
 	 */
 	public BigNum add(int b) {
 		BigNum bNum=new BigNum(b);
 		return this.add(bNum);
 	}
 	/**
-	 * ÇóºÍ
+	 * æ±‚å’Œ
 	 */
 	public BigNum add(String b) {
 		BigNum bNum=new BigNum(b);
 		return this.add(bNum);
 	}
 	/**
-	 * ÇóºÍ
+	 * æ±‚å’Œ
 	 */
 	public BigNum add(BigNum bNum) {
 		BigNum ans=new BigNum();
@@ -209,21 +209,21 @@ public class BigNum {
 		return ans;
 	}
 	/**
-	 * Çó²î
+	 * æ±‚å·®
 	 */
 	public BigNum minus(int b) {
 		BigNum bNum=new BigNum(b);
 		return this.minus(bNum);
 	}
 	/**
-	 * Çó²î
+	 * æ±‚å·®
 	 */
 	public BigNum minus(String b) {
 		BigNum bNum=new BigNum(b);
 		return this.minus(bNum);
 	}
 	/**
-	 * Çó²î
+	 * æ±‚å·®
 	 */
 	public BigNum minus(BigNum bNum) {
 		BigNum ans=new BigNum();
@@ -249,21 +249,21 @@ public class BigNum {
 		return ans;
 	}
 	/**
-	 * Çó³Ë·¨
+	 * æ±‚ä¹˜æ³•
 	 */
 	public BigNum multiple(int b){
 		BigNum bNum=new BigNum(b);
 		return this.multiple(bNum);
 	}
 	/**
-	 * Çó³Ë·¨
+	 * æ±‚ä¹˜æ³•
 	 */
 	public BigNum multiple(String b){
 		BigNum bNum=new BigNum(b);
 		return this.multiple(bNum);
 	}
 	/**
-	 * Çó³Ë·¨
+	 * æ±‚ä¹˜æ³•
 	 */
 	public BigNum multiple(BigNum bNum) {
 		if (isZero()||bNum.isZero()) {
@@ -277,7 +277,7 @@ public class BigNum {
 		}
 	}
 	/**
-	 * ³ËÒÔ10
+	 * ä¹˜ä»¥10
 	 */
 	public BigNum multiple10() {
 		aNum+="0";
@@ -285,7 +285,42 @@ public class BigNum {
 		return this;
 	}
 	/**
-	 * ³ıÒÔ10
+	 * é™¤æ³•
+	 * @return
+	 */
+	public BigNum divide(int b){
+		BigNum bNum=new BigNum(b);
+		return this.divide(bNum);
+	}
+	/**
+	 * é™¤æ³•
+	 * @return
+	 */
+	public BigNum divide(String b){
+		BigNum bNum=new BigNum(b);
+		return this.divide(bNum);
+	}
+	/**
+	 * é™¤æ³•
+	 * @return
+	 */
+	public BigNum divide(BigNum bNum){
+		if (isZero()) {
+			return this;
+		}
+		else if(bNum.isZero()){
+			return null;
+		}
+		else {
+			if ((isPos()&&bNum.isPos())||(isNeg()&&bNum.isNeg())) {
+				return new BigNum(devideString(aNum,bNum.abs().getNum()));
+			}
+			else return new BigNum("-"+devideString(aNum,bNum.abs().getNum()));
+		}
+	}
+
+	/**
+	 * é™¤ä»¥10
 	 */
 	public BigNum divide10() {
 		if (length()<=1) {
@@ -297,48 +332,55 @@ public class BigNum {
 		return this;
 	}
 	/**
-	 * ÇóÁ½Õß¾ø¶ÔÖµµÄmod
+	 * æ±‚ä¸¤è€…ç»å¯¹å€¼çš„mod
 	 * @return mod(|a|,|b|)
 	 */
  	public BigNum absMod(int b){
 		BigNum bNum=new BigNum(b);
 		return this.absMod(bNum);
 	}
+	/**
+	 * æ±‚ä¸¤è€…ç»å¯¹å€¼çš„mod
+	 * @return mod(|a|,|b|)
+	 */
 	public BigNum absMod(String b){
 		BigNum bNum=new BigNum(b);
 		return this.absMod(bNum);
 	}
+	/**
+	 * æ±‚ä¸¤è€…ç»å¯¹å€¼çš„mod
+	 * @return mod(|a|,|b|)
+	 */
 	public BigNum absMod(BigNum bNum) {
 		bNum=bNum.abs();
 		return new BigNum(countMod(aNum, bNum.abs().getNum()));
 	}
 	/**
-	 * È¡·´
+	 * å–å
 	 * @return
 	 */
 	public BigNum turnFlag() {
 		// TODO Auto-generated method stub
+		BigNum ans=new BigNum();
 		if (isNeg()) {
-			negPosFlag="+";
+			ans.setNum(aNum);
 		}
 		else if(isPos()) {
-			negPosFlag="-";
+			ans.setNum("-"+aNum);
 		}
-		return this;
+		return ans;
 	}
 	/**
-	 * È¡¾ø¶ÔÖµ
+	 * å–ç»å¯¹å€¼
 	 * @return
 	 */
 	public BigNum abs() {
 		// TODO Auto-generated method stub
-		if (isNeg()) {
-			negPosFlag="+";
-		}
-		return this;
+		BigNum ans=new BigNum(aNum);
+		return ans;
 	}
 	/**
-	 * ÇóºÍ
+	 * æ±‚å’Œ
 	 * @param aNum
 	 * @param bNum
 	 * @return a+b
@@ -380,15 +422,20 @@ public class BigNum {
 	}
 	
 	/**
-	 * Çó²î
+	 * æ±‚å·®
 	 * @param aNum
 	 * @param bNum
 	 * @return a-b
 	 */
 	private String minusString(String aNum, String bNum) {
-		if (!aIsBiggerThanB(aNum, bNum)) {
+	
+		if (aNum.equals(bNum)) {
+				return "0";
+		}
+		else if (!aIsBiggerThanB(aNum, bNum)) {
 			return "-"+minusString(bNum, aNum);
 		}
+		
 		StringBuilder ans=new StringBuilder();
 		int i=aNum.length()-1;
 		int j=bNum.length()-1;
@@ -415,7 +462,7 @@ public class BigNum {
 	}
 	
 	/**
-	 * Çó³Ë»ı
+	 * æ±‚ä¹˜ç§¯
 	 * @param aNum
 	 * @param bNum
 	 * @return a*b
@@ -424,6 +471,12 @@ public class BigNum {
 		// TODO Auto-generated method stub
 		if (!aIsBiggerThanB(aNum, bNum)) {
 			return multipleString(bNum, aNum);
+		}
+		else if (aNum.equals("1")) {
+			return bNum;
+		}
+		else if (bNum.equals("1")) {
+			return aNum;
 		}
 		PreCaculate(bNum);
 		BigNum ans=new BigNum();
@@ -435,7 +488,7 @@ public class BigNum {
 		return ans.getNum();
 	}
 	/**
-	 * ±È½Ïa b
+	 * æ¯”è¾ƒa b
 	 * @param a
 	 * @param b
 	 * @return a>b?
@@ -452,7 +505,7 @@ public class BigNum {
 		}
 	}
 	/**
-	 * ÇóÓà
+	 * æ±‚ä½™
 	 * @param aNum
 	 * @param bNum
 	 * @return mod(aNum,bNum)
@@ -530,7 +583,7 @@ public class BigNum {
 	}
 
 	/**
-	 * ÊÔÉÌ
+	 * è¯•å•†
 	 * @param bNum
 	 */
 	private void PreCaculate(String bNum) {
@@ -546,4 +599,66 @@ public class BigNum {
 		}
 	}
 	private String[] shishang=new String[10];
+	
+	private String devideString(String aNum, String bNum) {
+		// TODO Auto-generated method stub
+		if (aNum.equals(bNum)) {
+			return "1";
+		}
+		else if (!aIsBiggerThanB(aNum, bNum)) {
+			return "0";
+		}
+		else if (bNum.equals("1")) {
+			return aNum;
+		}
+		PreCaculate(bNum);
+		int blen=bNum.length();
+		StringBuilder ans=new StringBuilder();
+		String aNumLeft=aNum.substring(0,blen-1);
+		String aNumRight=aNum.substring(blen-1);
+		for(int i=0;i<aNumRight.length();i++){
+			aNumLeft=aNumLeft+aNumRight.charAt(i);
+			devideResult result=devideByShiShang(aNumLeft,bNum);
+			aNumLeft=result.numLeave;
+			ans.append(result.resultShang);
+		}
+		return checkForm(ans.toString());
+	}
+	
+	private devideResult devideByShiShang(String aNum, String bNum) {
+		// TODO Auto-generated method stub
+		int alen=aNum.length();
+		int blen=bNum.length();
+		int i;
+		if(alen>blen){
+			for (i=9; i >=0; i--) {
+				if (aIsBiggerThanB(aNum, shishang[i])||aNum.equals(shishang[i])) {
+					break;
+				}
+			}
+		}
+		else if (alen<blen) {
+			i=0;
+		}
+		else {
+			for(i=0;i<10;i++){
+				if (aNum.equals(shishang[i])) {
+					break;
+				}
+				else if (!aIsBiggerThanB(aNum, shishang[i])) {
+					i--;
+					break;
+				}
+			}
+		}
+		devideResult result=new devideResult();
+		result.numLeave=checkForm(minusString(aNum, shishang[i]));
+		result.resultShang=(char)(i+'0');
+		return result;
+	}
+
+	public class devideResult{
+		public String numLeave="";
+		public char resultShang='0';
+	}
 }
