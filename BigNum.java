@@ -507,7 +507,7 @@ public class BigNum {
 		if (aNum.equals(bNum)) {
 				return "0";
 		}
-		else if (!aIsBiggerThanB(aNum, bNum)) {
+		else if (aIsBiggerThanB(bNum, aNum)) {
 			return "-"+minusString(bNum, aNum);
 		}
 		
@@ -544,7 +544,7 @@ public class BigNum {
 	 */
 	private String multipleString(String aNum, String bNum) {
 		// TODO Auto-generated method stub
-		if (!aIsBiggerThanB(aNum, bNum)) {
+		if (aIsBiggerThanB(bNum, aNum)) {
 			return multipleString(bNum, aNum);
 		}
 		else if (aNum.equals("1")) {
@@ -680,7 +680,7 @@ public class BigNum {
 		if (aNum.equals(bNum)) {
 			return "1";
 		}
-		else if (!aIsBiggerThanB(aNum, bNum)) {
+		else if (aIsBiggerThanB(bNum, aNum)) {
 			return "0";
 		}
 		else if (bNum.equals("1")) {
